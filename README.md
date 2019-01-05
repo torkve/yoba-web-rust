@@ -1,7 +1,7 @@
 Yoba web interface
 ==================
 
-Yoba interpreter working on client side
+[Yoba](https://github.com/torkve/yoba-rust) interpreter working on client side
 
 To build it you need [wasm-pack](https://rustwasm.github.io/wasm-pack/book/).
 
