@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Yoba interpreter</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <script src="yoba_web.js"></script>
+        <script>
+            window.addEventListener('load', async() => {
+                await wasm_bindgen("yoba_web_bg.wasm");
+                document.getElementById("clientbutton").addEventListener('click', async() => {
+                    let code = document.getElementById('clientcode').value;
+                    try {
+                        let result = wasm_bindgen.exec_program(code);
+                        document.getElementById("clientoutput").innerHTML = result;
+                    } catch (e) {
+                        document.getElementById("clientoutput").innerHTML = e;
+                    }
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Yoba! For human beings</h1>
+        <p>Вас приветствует Йоба! Йоба — это чотко!</p>
+        <div/>
+        <div>
+            <textarea rows="25" cols="60" name="clientcode" id="clientcode">чо люблю сэмки йоба
+чо люблю пиво йоба
+чо люблю яга йоба
+чо люблю итерации йоба
+чо пиво это 1 йоба
+чо яга это 2 йоба
+
+чо усеки результат это
+    чо покажь итерации йоба
+    чо покажь сэмки йоба
+йоба
+
+чо усеки фибоначчи это
+    чо сэмки это пиво и яга йоба
+    чо пиво это яга йоба
+    чо яга это сэмки йоба
+    чо итерации это итерации и 1 йоба
+    чо есть итерации 50
+    тада
+        хуйни результат
+    или
+        хуйни фибоначчи
+    йоба
+йоба
+
+чо хуйни фибоначчи йоба
+            </textarea>
+            <button type="button" name="clientbutton" value="Интерпретировать!" id="clientbutton">Интерпретировать!</button>
+        </div>
+        <pre id="clientoutput"></pre>
+    </body>
+</html>
+
