@@ -9,7 +9,7 @@ Build with:
 
 ```sh
 $ wasm-pack build --target no-modules
-$ cp static/index.html pkg/
+$ cp static/* pkg/
 ```
 
 Then serve the `pkg/` dir with any web server.
